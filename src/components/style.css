@@ -1,0 +1,58 @@
+.form-control
+{
+    border: solid 1px #ccc !important;
+    border-radius: 10px !important;
+    padding-left:15px !important;
+    /* padding-left:15px !important;
+    padding-right:15px !important; */
+}
+
+.padding-0
+{
+    padding:0;
+}
+.contact-page
+{
+    padding: 30px 0;
+}
+.contact-form h4{
+    margin: 0;
+    /* padding: 0; */
+}
+.contact-page span{
+    font-size:12px;
+    color:#cd3232;
+}
+
+
+.carousel-wrapper {
+  padding: 40px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.testimonial-slide {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.testimonial-slide p {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.testimonial-slide h4 {
+  margin-top: 10px;
+}
+
+.testimonial-slide span {
+  font-size: 0.9rem;
+  color: #555;
+}
+.login-form
+{
+  height: 80vh;
+}
