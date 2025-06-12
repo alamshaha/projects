@@ -1,0 +1,45 @@
+const express = require('express');
+const { MongoClient } = require('mongodb');
+
+const app = express();
+const port = 3000;
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
+// MongoDB connection URI and settings
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+// Connect to MongoDB once and reuse the connection
+let db;
+client.connect()
+  .then(() => {
+    db = client.db('myDatabase'); // Replace with your database name
+    console.log('✅ Connected to MongoDB');
+  })
+  .catch(err => console.error('❌ MongoDB connection error:', err));
+
+// POST /api/users — Insert user into MongoDB
+app.post('/api/users', async (req, res) => {
+  try {
+    // const user = req.body; // Expecting JSON body
+    const user = {
+      name: 'Aslam Shaikh',
+      class: 'MCA',
+      age: 300
+    };
+
+
+    const result = await db.collection('students').insertOne(user);
+    res.status(201).json({ insertedId: result.insertedId });
+  } catch (err) {
+    console.error('Insert error:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Start the Express server
+app.listen(port, () => {
+  console.log(`🚀 Server running at http://localhost:${port}`);
+});
